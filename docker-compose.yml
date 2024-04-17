@@ -1,0 +1,10 @@
+services:
+  ms-user:
+    image: postgres
+    container_name: ms-user-db
+    environment:
+      - POSTGRES_PASSWORD=pg1234
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_DB=ms-user-db
+    ports:
+      - 5432:5432
