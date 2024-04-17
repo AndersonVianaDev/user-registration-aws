@@ -12,7 +12,7 @@ public class Producer {
     private final SqsTemplate sqsTemplate;
     private final ObjectMapper mapper;
 
-    @Value("url-queue")
+    @Value("${url-queue}")
     private String queue;
 
     public Producer(SqsTemplate sqsTemplate, ObjectMapper mapper) {
@@ -25,7 +25,7 @@ public class Producer {
             String dtoString = mapper.writeValueAsString(dto);
             sqsTemplate.send(queue, dtoString);
         } catch(Exception e) {
-            throw new RuntimeException("");
+            throw new RuntimeException("Error");
         }
     }
 }
