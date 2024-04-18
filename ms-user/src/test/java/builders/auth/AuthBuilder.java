@@ -1,15 +1,10 @@
 package builders.auth;
 
-import com.anderson.msuser.core.user.dtos.LoginDTO;
-import com.anderson.msuser.core.user.dtos.LoginResponseDTO;
+import com.anderson.msuser.api.validation.LoginRequestDTO;
 
 public class AuthBuilder {
 
-    public static LoginDTO toLoginDTO() {
-        return new LoginDTO("email", "password");
-    }
-
-    public static LoginResponseDTO toLoginResponseDTO() {
-        return new LoginResponseDTO("token");
+    public static LoginRequestDTO toLoginDTO() {
+        return new LoginRequestDTO("anderson@gmail.com", "Anderson");
     }
 }
