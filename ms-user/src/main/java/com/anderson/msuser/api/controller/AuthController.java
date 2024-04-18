@@ -4,6 +4,7 @@ import com.anderson.msuser.api.validation.LoginRequestDTO;
 import com.anderson.msuser.core.user.dtos.LoginDTO;
 import com.anderson.msuser.core.user.dtos.LoginResponseDTO;
 import com.anderson.msuser.core.user.services.AuthService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +24,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO data) {
+    public ResponseEntity<LoginResponseDTO> login(@RequestBody @Valid LoginRequestDTO data) {
         LoginDTO dto = toLoginDTO(data);
         LoginResponseDTO loginResponse = service.login(dto);
 
