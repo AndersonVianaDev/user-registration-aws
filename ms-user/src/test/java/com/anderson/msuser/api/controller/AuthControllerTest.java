@@ -19,7 +19,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import static builders.auth.AuthBuilder.toLoginDTO;
+import static builders.auth.AuthBuilder.toLoginRequestDTO;
 import static builders.user.UserBuilder.toUserDTO;
 
 @SpringBootTest
@@ -43,7 +43,7 @@ class AuthControllerTest {
         UserDTO dto = toUserDTO();
         userService.insert(dto);
 
-        LoginRequestDTO loginDTO = toLoginDTO();
+        LoginRequestDTO loginDTO = toLoginRequestDTO();
 
         String dtoString = mapper.writeValueAsString(loginDTO);
 
