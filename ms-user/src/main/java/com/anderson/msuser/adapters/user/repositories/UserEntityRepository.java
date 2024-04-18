@@ -3,26 +3,38 @@ package com.anderson.msuser.adapters.user.repositories;
 import com.anderson.msuser.adapters.user.entity.UserEntity;
 import com.anderson.msuser.core.user.model.User;
 import com.anderson.msuser.core.user.repository.UserRepository;
-import com.anderson.msuser.mapper.UserMapper;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+import static com.anderson.msuser.mapper.UserMapper.toUserEntity;
+import static com.anderson.msuser.mapper.UserMapper.toUser;
+import static com.anderson.msuser.mapper.UserMapper.toOptionalUser;
 
 @Repository
 public class UserEntityRepository implements UserRepository {
 
     private final JpaUserRepository repository;
-    private final UserMapper mapper;
 
-    public UserEntityRepository(JpaUserRepository repository, UserMapper mapper) {
+    public UserEntityRepository(JpaUserRepository repository) {
         this.repository = repository;
-        this.mapper = mapper;
     }
 
     @Override
     public User save(User user) {
-        UserEntity userEntity = mapper.toUserEntity(user);
+        UserEntity userEntity = toUserEntity(user);
 
         userEntity = repository.save(userEntity);
 
-        return mapper.toUser(userEntity);
+        return toUser(userEntity);
     }
+
+    @Override
+    public Optional<User> findByEmail(String email) {
+        Optional<UserEntity> userEntity = repository.findByEmail(email);
+
+        return toOptionalUser(userEntity);
+    }
+
+
 }
