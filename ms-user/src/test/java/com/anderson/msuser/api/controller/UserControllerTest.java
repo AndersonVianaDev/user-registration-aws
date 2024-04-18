@@ -1,8 +1,6 @@
 package com.anderson.msuser.api.controller;
 
-import builders.user.UserBuilder;
 import com.anderson.msuser.api.validation.UserRequestDTO;
-import com.anderson.msuser.core.user.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
@@ -18,6 +16,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import static builders.user.UserBuilder.toUserRequestDTO;
+
 @SpringBootTest
 @AutoConfigureMockMvc(addFilters = false)
 @Transactional
@@ -29,13 +29,10 @@ class UserControllerTest {
     @Autowired
     MockMvc mockMvc;
 
-    @Autowired
-    UserService userService;
-
     @Test
     @DisplayName("Register user successfully")
     void register() throws Exception {
-        UserRequestDTO dto = UserBuilder.toUserRequestDTO();
+        UserRequestDTO dto = toUserRequestDTO();
 
         String dtoString = mapper.writeValueAsString(dto);
 
