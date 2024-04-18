@@ -7,8 +7,11 @@ import com.anderson.msuser.core.user.repository.UserRepository;
 import com.anderson.msuser.core.user.services.AuthService;
 import com.anderson.msuser.core.user.services.PasswordEncodeService;
 import com.anderson.msuser.core.user.services.TokenService;
+import com.anderson.msuser.shared.exceptions.InvalidDataException;
 
 import java.util.Optional;
+
+import static com.anderson.msuser.shared.exceptions.Constants.PASSWORD_OR_EMAIL_IS_WRONG;
 
 public class AuthServiceImpl implements AuthService {
 
@@ -27,7 +30,7 @@ public class AuthServiceImpl implements AuthService {
         Optional<User> user = repository.findByEmail(dto.email());
 
         if(user.isEmpty() || !passwordEncode.compare(user.get().getPassword(), dto.password())) {
-            throw new RuntimeException("Password or email is wrong");
+            throw new InvalidDataException(PASSWORD_OR_EMAIL_IS_WRONG);
         }
 
         return new LoginResponseDTO(tokenService.generator(user.get()));

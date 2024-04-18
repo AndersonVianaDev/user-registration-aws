@@ -2,6 +2,7 @@ package com.anderson.msuser.config.security;
 
 import com.anderson.msuser.adapters.user.repositories.JpaUserRepository;
 import com.anderson.msuser.core.user.services.TokenService;
+import com.anderson.msuser.shared.exceptions.NotFoundException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -33,7 +34,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 
         if(token != null) {
             UUID id = tokenService.validateToken(token);
-            UserDetails user = repository.findById(id).orElseThrow(() -> new RuntimeException("User with email not found."));
+            UserDetails user = repository.findById(id).orElseThrow(() -> new NotFoundException("User with email not found."));
 
             var authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);

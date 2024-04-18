@@ -2,6 +2,7 @@ package com.anderson.msuser.adapters.user.services;
 
 import com.anderson.msuser.core.user.model.User;
 import com.anderson.msuser.core.user.services.TokenService;
+import com.anderson.msuser.shared.exceptions.UnexpectedException;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
@@ -13,6 +14,9 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.UUID;
+
+import static com.anderson.msuser.shared.exceptions.Constants.ERROR_GENERATING_TOKEN;
+import static com.anderson.msuser.shared.exceptions.Constants.TOKEN_VALIDATION_ERROR;
 
 @Service
 public class TokenServiceAdapter implements TokenService {
@@ -26,10 +30,10 @@ public class TokenServiceAdapter implements TokenService {
             return JWT.create()
                     .withIssuer("auth")
                     .withSubject(user.getId().toString())
-                    .withExpiresAt(exirationDate())
+                    .withExpiresAt(expirationDate())
                     .sign(createAlgorithm());
         } catch (JWTCreationException e) {
-            throw new RuntimeException(e.getMessage());
+            throw new UnexpectedException(ERROR_GENERATING_TOKEN);
         }
     }
 
@@ -44,7 +48,7 @@ public class TokenServiceAdapter implements TokenService {
                             .getSubject()
             );
         } catch (JWTVerificationException e) {
-            throw new RuntimeException(e.getMessage());
+            throw new UnexpectedException(TOKEN_VALIDATION_ERROR);
         }
     }
 
@@ -52,7 +56,7 @@ public class TokenServiceAdapter implements TokenService {
         return Algorithm.HMAC256(secret);
     }
 
-    private Instant exirationDate() {
+    private Instant expirationDate() {
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
     }
 }
