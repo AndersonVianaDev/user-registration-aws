@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import static com.anderson.msuser.mapper.UserMapper.toUserDTO;
+import static com.anderson.msuser.shared.mapper.UserMapper.toUserDTO;
 
 @RestController
 @RequestMapping("/users")

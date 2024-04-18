@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-import static com.anderson.msuser.mapper.UserMapper.toUserEntity;
-import static com.anderson.msuser.mapper.UserMapper.toUser;
-import static com.anderson.msuser.mapper.UserMapper.toOptionalUser;
+import static com.anderson.msuser.shared.mapper.UserMapper.toUserEntity;
+import static com.anderson.msuser.shared.mapper.UserMapper.toUser;
+import static com.anderson.msuser.shared.mapper.UserMapper.toOptionalUser;
 
 @Repository
 public class UserEntityRepository implements UserRepository {
