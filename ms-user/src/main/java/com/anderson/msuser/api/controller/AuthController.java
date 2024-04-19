@@ -1,9 +1,10 @@
 package com.anderson.msuser.api.controller;
 
 import com.anderson.msuser.api.validation.LoginRequestDTO;
-import com.anderson.msuser.core.user.dtos.LoginDTO;
-import com.anderson.msuser.core.user.dtos.LoginResponseDTO;
-import com.anderson.msuser.core.user.services.AuthService;
+import com.anderson.msuser.core.auth.dtos.LoginDTO;
+import com.anderson.msuser.core.auth.dtos.LoginResponseDTO;
+import com.anderson.msuser.core.auth.services.AuthService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import static com.anderson.msuser.shared.mapper.AuthMapper.toLoginDTO;
 
 @RestController
 @RequestMapping("/auth")
+@Transactional
 public class AuthController {
 
     private final AuthService service;

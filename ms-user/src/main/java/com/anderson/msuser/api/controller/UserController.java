@@ -5,6 +5,7 @@ import com.anderson.msuser.core.user.dtos.UserResponseDTO;
 import com.anderson.msuser.core.user.model.User;
 import com.anderson.msuser.core.user.services.UserService;
 import com.anderson.msuser.api.validation.UserRequestDTO;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import static com.anderson.msuser.shared.mapper.UserMapper.toUserResponseList;
 
 @RestController
 @RequestMapping("/users")
+@Transactional
 public class UserController {
 
     private final UserService service;

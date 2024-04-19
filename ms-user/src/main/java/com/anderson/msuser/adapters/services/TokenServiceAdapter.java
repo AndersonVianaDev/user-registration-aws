@@ -1,7 +1,7 @@
 package com.anderson.msuser.adapters.user.services;
 
 import com.anderson.msuser.core.user.model.User;
-import com.anderson.msuser.core.user.services.TokenService;
+import com.anderson.msuser.core.shared.TokenService;
 import com.anderson.msuser.shared.exceptions.UnexpectedException;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
