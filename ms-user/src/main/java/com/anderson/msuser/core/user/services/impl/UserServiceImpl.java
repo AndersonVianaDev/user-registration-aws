@@ -2,6 +2,7 @@ package com.anderson.msuser.core.user.services.impl;
 
 import com.anderson.msuser.core.user.dtos.UserDTO;
 import com.anderson.msuser.core.user.dtos.UserResponseDTO;
+import com.anderson.msuser.core.user.enums.UserType;
 import com.anderson.msuser.core.user.model.User;
 import com.anderson.msuser.core.user.repository.UserRepository;
 import com.anderson.msuser.core.user.services.EmailService;
@@ -31,7 +32,9 @@ public class UserServiceImpl implements UserService {
         User user = new User(dto);
 
         String password = passwordEncodeService.encode(dto.password());
+
         user.setPassword(password);
+        user.setUserType(UserType.COMMON);
 
         user = repository.save(user);
 

@@ -12,14 +12,14 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private UserType userType;
+    private Integer userType;
 
     public User(UUID id, String name, String email, String password, UserType userType) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.userType = userType;
+        setUserType(userType);
     }
 
     public User(UserDTO dto) {
@@ -48,7 +48,11 @@ public class User {
     }
 
     public UserType getUserType() {
-        return userType;
+        return UserType.valueOf(userType);
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType.getCode();
     }
 
     @Override

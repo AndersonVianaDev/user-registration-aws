@@ -6,4 +6,5 @@ public class ExceptionConstants {
     public static String PASSWORD_OR_EMAIL_IS_WRONG = "Password or email is wrong.";
     public static String ERROR_GENERATING_TOKEN = "Error generating token.";
     public static String TOKEN_VALIDATION_ERROR = "Token validation error.";
+    public static String INVALID_CODE = "Invalid code.";
 }
