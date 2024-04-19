@@ -24,4 +24,7 @@ public class UserBuilder {
                 new User(UUID.randomUUID(), "BBBB", "anderson@gmail.com", "Anderson", UserType.COMMON),
                 new User(UUID.randomUUID(), "CCCCC", "anderson@gmail.com", "Anderson", UserType.COMMON));
     }
+    public static User toUserNumber(int n) {
+        return new User(null,"name" + n, "email"+ n +"@gmail.com", "password", UserType.ADMIN);
+    }
 }
