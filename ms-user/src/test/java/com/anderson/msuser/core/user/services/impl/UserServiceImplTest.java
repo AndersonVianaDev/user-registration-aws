@@ -17,6 +17,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -84,5 +85,20 @@ class UserServiceImplTest {
 
         // assertions
         assertEquals(EMAIL_ALREADY_REGISTERED, exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Find all users successfully")
+    void findAll() {
+        // arrange
+        List<User> userList = UserBuilder.toUserList();
+
+        when(repository.findAll(0, 3)).thenReturn(userList);
+
+        // action
+        List<User> userListResul = service.findAll(0, 3);
+
+        // assertions
+        assertEquals(userList.size(), userListResul.size());
     }
 }

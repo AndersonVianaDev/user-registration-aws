@@ -5,6 +5,7 @@ import com.anderson.msuser.core.user.dtos.UserDTO;
 import com.anderson.msuser.core.user.enums.UserType;
 import com.anderson.msuser.core.user.model.User;
 
+import java.util.List;
 import java.util.UUID;
 
 public class UserBuilder {
@@ -17,5 +18,10 @@ public class UserBuilder {
     }
     public static User toUser() {
         return new User(UUID.randomUUID(), "Anderson", "anderson@gmail.com", "Anderson", UserType.ADMIN);
+    }
+    public static List<User> toUserList() {
+        return List.of(new User(UUID.randomUUID(), "AAAAA", "anderson@gmail.com", "Anderson", UserType.COMMON),
+                new User(UUID.randomUUID(), "BBBB", "anderson@gmail.com", "Anderson", UserType.COMMON),
+                new User(UUID.randomUUID(), "CCCCC", "anderson@gmail.com", "Anderson", UserType.COMMON));
     }
 }
