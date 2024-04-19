@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
-import static com.anderson.msuser.shared.exceptions.Constants.PASSWORD_OR_EMAIL_IS_WRONG;
+import static com.anderson.msuser.shared.constants.ExceptionConstants.PASSWORD_OR_EMAIL_IS_WRONG;
 
 @ExtendWith(MockitoExtension.class)
 class AuthServiceImplTest {

@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.UUID;
 
-import static com.anderson.msuser.shared.exceptions.Constants.ERROR_GENERATING_TOKEN;
-import static com.anderson.msuser.shared.exceptions.Constants.TOKEN_VALIDATION_ERROR;
+import static com.anderson.msuser.shared.constants.ExceptionConstants.ERROR_GENERATING_TOKEN;
+import static com.anderson.msuser.shared.constants.ExceptionConstants.TOKEN_VALIDATION_ERROR;
 
 @Service
 public class TokenServiceAdapter implements TokenService {

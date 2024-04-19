@@ -1,6 +1,6 @@
-package com.anderson.msuser.shared.exceptions;
+package com.anderson.msuser.shared.constants;
 
-public class Constants {
+public class ExceptionConstants {
 
     public static String EMAIL_ALREADY_REGISTERED = "Email already registered on another account, if you forgot your password, click on \"forgot password\"";
     public static String PASSWORD_OR_EMAIL_IS_WRONG = "Password or email is wrong.";

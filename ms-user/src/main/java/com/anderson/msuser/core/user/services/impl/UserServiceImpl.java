@@ -9,7 +9,7 @@ import com.anderson.msuser.core.user.services.PasswordEncodeService;
 import com.anderson.msuser.core.user.services.UserService;
 import com.anderson.msuser.shared.exceptions.AccountAlreadyRegisteredException;
 
-import static com.anderson.msuser.shared.exceptions.Constants.EMAIL_ALREADY_REGISTERED;
+import static com.anderson.msuser.shared.constants.ExceptionConstants.EMAIL_ALREADY_REGISTERED;
 
 public class UserServiceImpl implements UserService {
     private final UserRepository repository;

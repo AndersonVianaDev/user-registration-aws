@@ -26,7 +26,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import static com.anderson.msuser.shared.exceptions.Constants.EMAIL_ALREADY_REGISTERED;
+import static com.anderson.msuser.shared.constants.ExceptionConstants.EMAIL_ALREADY_REGISTERED;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {

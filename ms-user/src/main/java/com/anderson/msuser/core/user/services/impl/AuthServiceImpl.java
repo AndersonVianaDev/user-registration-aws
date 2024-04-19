@@ -11,7 +11,7 @@ import com.anderson.msuser.shared.exceptions.InvalidDataException;
 
 import java.util.Optional;
 
-import static com.anderson.msuser.shared.exceptions.Constants.PASSWORD_OR_EMAIL_IS_WRONG;
+import static com.anderson.msuser.shared.constants.ExceptionConstants.PASSWORD_OR_EMAIL_IS_WRONG;
 
 public class AuthServiceImpl implements AuthService {
 
