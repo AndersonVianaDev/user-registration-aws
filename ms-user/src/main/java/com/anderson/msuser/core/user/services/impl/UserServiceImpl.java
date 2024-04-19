@@ -5,8 +5,8 @@ import com.anderson.msuser.core.user.dtos.UserResponseDTO;
 import com.anderson.msuser.core.user.enums.UserType;
 import com.anderson.msuser.core.user.model.User;
 import com.anderson.msuser.core.user.repository.UserRepository;
-import com.anderson.msuser.core.user.services.EmailService;
-import com.anderson.msuser.core.user.services.PasswordEncodeService;
+import com.anderson.msuser.core.services.EmailService;
+import com.anderson.msuser.core.services.PasswordEncodeService;
 import com.anderson.msuser.core.user.services.UserService;
 import com.anderson.msuser.shared.exceptions.AccountAlreadyRegisteredException;
 

@@ -1,6 +1,6 @@
-package com.anderson.msuser.adapters.user.services;
+package com.anderson.msuser.adapters.services;
 
-import com.anderson.msuser.core.shared.PasswordEncodeService;
+import com.anderson.msuser.core.services.PasswordEncodeService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

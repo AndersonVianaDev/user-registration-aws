@@ -1,7 +1,7 @@
-package com.anderson.msuser.core.user.services;
+package com.anderson.msuser.core.auth.services;
 
-import com.anderson.msuser.core.user.dtos.LoginDTO;
-import com.anderson.msuser.core.user.dtos.LoginResponseDTO;
+import com.anderson.msuser.core.auth.dtos.LoginDTO;
+import com.anderson.msuser.core.auth.dtos.LoginResponseDTO;
 
 public interface AuthService {
 

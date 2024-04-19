@@ -1,4 +1,4 @@
-package com.anderson.msuser.core.shared;
+package com.anderson.msuser.core.services;
 
 public interface PasswordEncodeService {
 

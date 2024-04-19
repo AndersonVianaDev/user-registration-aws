@@ -1,8 +1,8 @@
-package com.anderson.msuser.adapters.user.services;
+package com.anderson.msuser.adapters.services;
 
 import com.anderson.msuser.core.user.dtos.EmailDTO;
 import com.anderson.msuser.core.user.model.User;
-import com.anderson.msuser.core.user.services.EmailService;
+import com.anderson.msuser.core.services.EmailService;
 import com.anderson.msuser.producer.Producer;
 import org.springframework.stereotype.Service;
 

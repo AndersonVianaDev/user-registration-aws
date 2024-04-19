@@ -1,7 +1,7 @@
 package com.anderson.msuser.config.security;
 
 import com.anderson.msuser.adapters.user.repositories.JpaUserRepository;
-import com.anderson.msuser.core.user.services.TokenService;
+import com.anderson.msuser.core.services.TokenService;
 import com.anderson.msuser.shared.exceptions.NotFoundException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

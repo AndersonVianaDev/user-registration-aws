@@ -1,12 +1,12 @@
-package com.anderson.msuser.core.user.services.impl;
+package com.anderson.msuser.core.auth.services.impl;
 
-import com.anderson.msuser.core.user.dtos.LoginDTO;
-import com.anderson.msuser.core.user.dtos.LoginResponseDTO;
+import com.anderson.msuser.core.auth.dtos.LoginDTO;
+import com.anderson.msuser.core.auth.dtos.LoginResponseDTO;
 import com.anderson.msuser.core.user.model.User;
 import com.anderson.msuser.core.user.repository.UserRepository;
-import com.anderson.msuser.core.user.services.AuthService;
-import com.anderson.msuser.core.user.services.PasswordEncodeService;
-import com.anderson.msuser.core.user.services.TokenService;
+import com.anderson.msuser.core.auth.services.AuthService;
+import com.anderson.msuser.core.services.PasswordEncodeService;
+import com.anderson.msuser.core.services.TokenService;
 import com.anderson.msuser.shared.exceptions.InvalidDataException;
 
 import java.util.Optional;

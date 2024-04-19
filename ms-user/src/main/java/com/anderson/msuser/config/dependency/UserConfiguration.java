@@ -1,8 +1,8 @@
 package com.anderson.msuser.config.dependency;
 
 import com.anderson.msuser.adapters.user.repositories.UserEntityRepository;
-import com.anderson.msuser.adapters.user.services.EmailServiceAdapter;
-import com.anderson.msuser.adapters.user.services.PasswordEncodeAdapter;
+import com.anderson.msuser.adapters.services.EmailServiceAdapter;
+import com.anderson.msuser.adapters.services.PasswordEncodeAdapter;
 import com.anderson.msuser.core.user.services.UserService;
 import com.anderson.msuser.core.user.services.impl.UserServiceImpl;
 import org.springframework.context.annotation.Bean;

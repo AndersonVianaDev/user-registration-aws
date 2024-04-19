@@ -1,7 +1,7 @@
 package builders.auth;
 
 import com.anderson.msuser.api.validation.LoginRequestDTO;
-import com.anderson.msuser.core.user.dtos.LoginDTO;
+import com.anderson.msuser.core.auth.dtos.LoginDTO;
 
 public class AuthBuilder {
 

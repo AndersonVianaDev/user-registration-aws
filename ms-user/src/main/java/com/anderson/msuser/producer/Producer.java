@@ -7,6 +7,8 @@ import io.awspring.cloud.sqs.operations.SqsTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import static com.anderson.msuser.shared.constants.ExceptionConstants.UNEXPECTED_EXCEPTION;
+
 @Component
 public class Producer {
 
@@ -26,7 +28,7 @@ public class Producer {
             String dtoString = mapper.writeValueAsString(dto);
             sqsTemplate.send(queue, dtoString);
         } catch(Exception e) {
-            throw new UnexpectedException("Error");
+            throw new UnexpectedException(UNEXPECTED_EXCEPTION);
         }
     }
 }

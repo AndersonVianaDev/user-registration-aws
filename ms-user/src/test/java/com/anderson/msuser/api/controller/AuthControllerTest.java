@@ -1,7 +1,6 @@
 package com.anderson.msuser.api.controller;
 
 import com.anderson.msuser.api.validation.LoginRequestDTO;
-import com.anderson.msuser.core.user.dtos.LoginDTO;
 import com.anderson.msuser.core.user.dtos.UserDTO;
 import com.anderson.msuser.core.user.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,8 +15,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 import static builders.auth.AuthBuilder.toLoginRequestDTO;
 import static builders.user.UserBuilder.toUserDTO;
