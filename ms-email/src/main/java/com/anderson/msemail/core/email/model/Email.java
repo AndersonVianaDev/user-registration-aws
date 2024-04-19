@@ -15,7 +15,7 @@ public class Email {
     private String subject;
     private String text;
     private LocalDateTime sendDateEmail;
-    private StatusEmail statusEmail;
+    private Integer statusEmail;
 
     public Email(EmailDTO dto) {
         this.idUser = dto.idUser();
@@ -28,40 +28,20 @@ public class Email {
         return id;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
     public UUID getIdUser() {
         return idUser;
-    }
-
-    public void setIdUser(UUID idUser) {
-        this.idUser = idUser;
     }
 
     public String getEmailTo() {
         return emailTo;
     }
 
-    public void setEmailTo(String emailTo) {
-        this.emailTo = emailTo;
-    }
-
     public String getSubject() {
         return subject;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
     public String getText() {
         return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 
     public LocalDateTime getSendDateEmail() {
@@ -73,11 +53,11 @@ public class Email {
     }
 
     public StatusEmail getStatusEmail() {
-        return statusEmail;
+        return StatusEmail.valueOf(statusEmail);
     }
 
     public void setStatusEmail(StatusEmail statusEmail) {
-        this.statusEmail = statusEmail;
+        this.statusEmail = statusEmail.getCode();
     }
 
     @Override

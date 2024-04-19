@@ -1,7 +1,5 @@
 package com.anderson.msemail.adapters.email.entity;
 
-import com.anderson.msemail.core.email.enums.StatusEmail;
-import com.anderson.msemail.core.email.model.Email;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -19,15 +17,19 @@ public class EmailEntity {
     private String subject;
     private String text;
     private LocalDateTime sendDateEmail;
-    private StatusEmail statusEmail;
+    private Integer statusEmail;
 
-    public EmailEntity(Email email) {
-        this.id = email.getId();
-        this.idUser = email.getIdUser();
-        this.emailTo = email.getEmailTo();
-        this.subject = email.getSubject();
-        this.text = email.getText();
-        this.sendDateEmail = email.getSendDateEmail();
-        this.statusEmail = email.getStatusEmail();
+    public EmailEntity() {
+
+    }
+
+    public EmailEntity(UUID id, UUID idUser, String emailTo, String subject, String text, LocalDateTime sendDateEmail, Integer statusEmail) {
+        this.id = id;
+        this.idUser = idUser;
+        this.emailTo = emailTo;
+        this.subject = subject;
+        this.text = text;
+        this.sendDateEmail = sendDateEmail;
+        this.statusEmail = statusEmail;
     }
 }
