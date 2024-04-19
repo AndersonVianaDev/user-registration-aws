@@ -10,6 +10,8 @@ import com.anderson.msuser.core.user.services.PasswordEncodeService;
 import com.anderson.msuser.core.user.services.UserService;
 import com.anderson.msuser.shared.exceptions.AccountAlreadyRegisteredException;
 
+import java.util.List;
+
 import static com.anderson.msuser.shared.constants.ExceptionConstants.EMAIL_ALREADY_REGISTERED;
 
 public class UserServiceImpl implements UserService {
@@ -41,5 +43,9 @@ public class UserServiceImpl implements UserService {
         emailService.sendMessage(user);
 
         return new UserResponseDTO(user.getId(), user.getName(), user.getEmail());
+    }
+    @Override
+    public List<User> findAll(Integer page, Integer size) {
+        return repository.findAll(page, size);
     }
 }

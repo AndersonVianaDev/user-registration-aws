@@ -2,10 +2,12 @@ package com.anderson.msuser.shared.mapper;
 
 import com.anderson.msuser.adapters.user.entity.UserEntity;
 import com.anderson.msuser.core.user.dtos.UserDTO;
+import com.anderson.msuser.core.user.dtos.UserResponseDTO;
 import com.anderson.msuser.core.user.model.User;
 import com.anderson.msuser.api.validation.UserRequestDTO;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -25,5 +27,13 @@ public class UserMapper {
 
     public static Optional<User> toOptionalUser(Optional<UserEntity> userEntity) {
         return userEntity.map(entity -> new User(entity.getId(), entity.getName(), entity.getEmail(), entity.getPassword(), entity.getUserType()));
+    }
+
+    public static List<User> toUserList(List<UserEntity> userEntityList) {
+        return userEntityList.stream().map(entity -> new User(entity.getId(), entity.getName(), entity.getEmail(), entity.getPassword(), entity.getUserType())).toList();
+    }
+
+    public static List<UserResponseDTO> toUserResponseList(List<User> userList) {
+        return userList.stream().map(user -> new UserResponseDTO(user.getId(), user.getName(), user.getEmail())).toList();
     }
 }
