@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.logging.Logger;
 
+import static com.anderson.msuser.shared.constants.EmailConstants.REGISTRATION_SUBJECT;
+import static com.anderson.msuser.shared.constants.EmailConstants.WELCOME_TEXT;
+
 @Service
 public class EmailServiceAdapter implements EmailService {
 
@@ -21,8 +24,8 @@ public class EmailServiceAdapter implements EmailService {
 
     @Override
     public void sendMessage(User user) {
-        String subject = "Registration completed successfully!";
-        String text = user.getName() + ", welcome ! Take advantage of our platform!";
+        String subject = REGISTRATION_SUBJECT;
+        String text = user.getName() + WELCOME_TEXT;
 
         EmailDTO emailDTO = new EmailDTO(user.getId(), user.getEmail(), subject, text);
 

@@ -8,4 +8,5 @@ public class ExceptionConstants {
     public static String TOKEN_VALIDATION_ERROR = "Token validation error.";
     public static String INVALID_CODE = "Invalid code.";
     public static String UNEXPECTED_EXCEPTION = "unexpected exception, try again later.";
+    public static String NOT_FOUND = "User not found.";
 }

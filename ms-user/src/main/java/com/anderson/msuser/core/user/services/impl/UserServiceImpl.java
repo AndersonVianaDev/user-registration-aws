@@ -17,11 +17,8 @@ import static com.anderson.msuser.shared.constants.ExceptionConstants.EMAIL_ALRE
 
 public class UserServiceImpl implements UserService {
     private final UserRepository repository;
-
     private final PasswordEncodeService passwordEncodeService;
-
     private final EmailService emailService;
-
     private final Logger logger = Logger.getLogger(this.getClass().getName());
 
     public UserServiceImpl(UserRepository repository, PasswordEncodeService passwordEncodeService, EmailService emailService) {
@@ -40,7 +37,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(password);
         user.setUserType(UserType.COMMON);
 
-        logger.info("saving user with email: " + user.getEmail());
+        logger.fine("saving user with email: " + user.getEmail());
         user = repository.save(user);
 
         // send confirmation email

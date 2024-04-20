@@ -16,12 +16,16 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.logging.Logger;
+
+import static com.anderson.msuser.shared.constants.ExceptionConstants.NOT_FOUND;
 
 @Component
 public class SecurityFilter extends OncePerRequestFilter {
 
     private final TokenService tokenService;
     private final JpaUserRepository repository;
+    private final Logger logger = Logger.getLogger(this.getClass().getName());
 
     public SecurityFilter(TokenService tokenService, JpaUserRepository repository) {
         this.tokenService = tokenService;
@@ -33,8 +37,9 @@ public class SecurityFilter extends OncePerRequestFilter {
         String token = recoverToken(request);
 
         if(token != null) {
+            logger.fine("token Internal Filter: " + token);
             UUID id = tokenService.validateToken(token);
-            UserDetails user = repository.findById(id).orElseThrow(() -> new NotFoundException("User with email not found."));
+            UserDetails user = repository.findById(id).orElseThrow(() -> new NotFoundException(NOT_FOUND));
 
             var authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
