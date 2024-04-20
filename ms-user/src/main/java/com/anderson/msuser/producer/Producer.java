@@ -7,6 +7,8 @@ import io.awspring.cloud.sqs.operations.SqsTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.logging.Logger;
+
 import static com.anderson.msuser.shared.constants.ExceptionConstants.UNEXPECTED_EXCEPTION;
 
 @Component
@@ -14,6 +16,7 @@ public class Producer {
 
     private final SqsTemplate sqsTemplate;
     private final ObjectMapper mapper;
+    private final Logger logger = Logger.getLogger(this.getClass().getName());
 
     @Value("${url-queue}")
     private String queue;
@@ -27,7 +30,8 @@ public class Producer {
         try {
             String dtoString = mapper.writeValueAsString(dto);
             sqsTemplate.send(queue, dtoString);
-        } catch(Exception e) {
+        } catch (Exception e) {
+            logger.severe("error when sending email from " + dto.emailTo() + " to email microservice");
             throw new UnexpectedException(UNEXPECTED_EXCEPTION);
         }
     }

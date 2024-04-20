@@ -11,6 +11,7 @@ import com.anderson.msuser.core.user.services.UserService;
 import com.anderson.msuser.shared.exceptions.AccountAlreadyRegisteredException;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import static com.anderson.msuser.shared.constants.ExceptionConstants.EMAIL_ALREADY_REGISTERED;
 
@@ -19,7 +20,9 @@ public class UserServiceImpl implements UserService {
 
     private final PasswordEncodeService passwordEncodeService;
 
-    private EmailService emailService;
+    private final EmailService emailService;
+
+    private final Logger logger = Logger.getLogger(this.getClass().getName());
 
     public UserServiceImpl(UserRepository repository, PasswordEncodeService passwordEncodeService, EmailService emailService) {
         this.repository = repository;
@@ -34,14 +37,16 @@ public class UserServiceImpl implements UserService {
         User user = new User(dto);
 
         String password = passwordEncodeService.encode(dto.password());
-
         user.setPassword(password);
         user.setUserType(UserType.COMMON);
 
+        logger.info("saving user with email: " + user.getEmail());
         user = repository.save(user);
 
+        // send confirmation email
         emailService.sendMessage(user);
 
+        logger.info("email user "+ user.getEmail() +" is saved ");
         return new UserResponseDTO(user.getId(), user.getName(), user.getEmail());
     }
     @Override
