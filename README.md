@@ -36,6 +36,10 @@ MockMVC e Banco de dados H2 é utilizado para os testes de integração.
 ## Documentação da API
 A documentação detalhada da API pode ser acessada em: http://localhost:8080/api/v1/swagger-ui/index.html#
 
+## Usuário ADMIN da aplicação
+- email: admin@gmail.com
+- password: admin1234
+
 ## Pré-requisitos
 - LocalStack instalado e configurado em sua máquina.
 - Docker instalado.
